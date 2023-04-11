@@ -5,16 +5,16 @@
     <link rel="stylesheet" href="bootstrap/bootstrap.min.css" />
   </head>
   <body
-    class="vh-100 d-flex flex-column align-items-center justify-content-center"
+    class="vh-100 d-flex flex-column align-items-center"
     style="padding-top: 100px"
   >
-    <div class="join-container w-25">
+    <div id="join-container" class="w-25">
       <div class="card shadow">
         <div class="card-header">
           <h1 class="fs-3 text-center">Socket.io Chat</h1>
         </div>
         <div class="card-body p-5">
-          <form>
+          <form id="join-form">
             <div class="mb-3">
               <label for="username" class="form-label">Username</label>
               <input
@@ -22,16 +22,17 @@
                 class="form-control"
                 id="username"
                 autocomplete="off"
+                required
               />
             </div>
             <div class="mb-4">
-              <label for="room" class="form-label">Room</label>
-              <input
-                type="text"
-                class="form-control"
-                id="room"
-                autocomplete="off"
-              />
+              <label for="room-select" class="form-label">Room</label>
+              <select id="room-select" class="form-select">
+                <option value="Room 1">Room 1</option>
+                <option value="Room 2">Room 2</option>
+                <option value="Room 3">Room 3</option>
+                <option value="Room 4">Room 4</option>
+              </select>
             </div>
             <div class="d-grid">
               <button type="submit" class="btn btn-primary">Join chat</button>
@@ -40,8 +41,7 @@
         </div>
       </div>
     </div>
-
-    <div class="chat-container w-75">
+    <div id="chat-container" class="w-75">
       <div class="card shadow">
         <div class="card-header d-flex justify-content-between p-3">
           <h1 class="fs-3 text-center">Socket.io Chat</h1>
@@ -49,51 +49,41 @@
         </div>
         <div class="card-body">
           <div class="row">
-            <div class="col-4">
+            <div class="col-3">
               <div class="room-name">
                 <h2>Room :</h2>
                 <div id="room-name">test</div>
               </div>
               <div class="users-list">
                 <h2>Users :</h2>
-                <div id="users-list">
-                  <div>test</div>
-                  <div>test</div>
-                  <div>test</div>
-                  <div>test</div>
-                  <div>test</div>
-                </div>
+                <div id="users-list"></div>
               </div>
             </div>
-            <div class="col-8">
-              <div id="messages" class="text-light">
-                <div class="bg-secondary p-3">
-                  <div class="fw-light mb-2">Username - 8h25</div>
-                  test
-                </div>
-                <div>test</div>
-                <div>test</div>
-                <div>test</div>
-                <div>test</div>
-              </div>
+            <div class="col-9">
+              <div
+                id="messages"
+                class="text-light overflow-y-scroll p-4"
+                style="height: 400px"
+              ></div>
+              <div id="typing-text" class="text-dark text-center"></div>
             </div>
           </div>
         </div>
         <div class="card-footer p-3">
-          <form class="d-flex">
+          <form id="chat-form" class="d-flex">
             <input
               type="text"
               class="form-control me-2"
               id="msg-input"
               placeholder="Enter message"
             />
-            <button type="submit" class="btn btn-primary">Send</button>
+            <button type="submit" class="btn btn-primary btn-lg">Send</button>
           </form>
         </div>
       </div>
     </div>
     <script src="bootstrap/bootstrap.min.js"></script>
     <script src="/socket.io/socket.io.js"></script>
-    <script src="client.js"></script>
+    <script src="./client.js"></script>
   </body>
 </html>

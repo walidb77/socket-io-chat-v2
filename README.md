@@ -29,3 +29,10 @@ Start the server
   npm run start
 ```
 
+Link in browser
+
+```bash
+  http://localhost:3000/
+```
+
+

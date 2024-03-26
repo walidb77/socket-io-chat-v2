@@ -1,6 +1,6 @@
-# Socket.io Chat V2
+# Socket.io Chat App
 
-A new version of my simple chat with more features :
+Features :
 - Username and room choice
 - Username and time of messages
 - Current room name
